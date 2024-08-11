@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+    <style>
+        h1 {
+            color: green;
+            text-transform: uppercase;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid blue;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        table td,
+        th {
+            border: 2px solid blue;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        table th {
+            color: #fff;
+            background-color: rgb(104, 177, 241);
+        }
+
+        .input-box {
+            width: 90%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>This is iserted Data-table</h1>
+    </center>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Country</th>
+        </thead>
+        <tbody id="myTable">
+
+        </tbody>
+    </table>
+    <div class="input-box">
+        <label for="">Name</label>
+        <input type="text" placeholder="full name" id="input_name" required>
+        <label for="">Number</label>
+        <input type="text" placeholder="phone number" id="input_number" required>
+        <label for="">Country</label>
+        <input type="text" placeholder="country name" id="input_country" required>
+        <button id="insert">ADD Data</button>
+    </div>
+    <script>
+        document.getElementById('insert').addEventListener('click', function () {
+            const inputName = document.getElementById('input_name');
+            const inputNumber = document.getElementById('input_number');
+            const inputCountry = document.getElementById('input_country');
+            const dataTable = document.getElementById('myTable');
+            const row = dataTable.insertRow(0);
+            const cell_1 = row.insertCell(0);
+            const cell_2 = row.insertCell(1);
+            const cell_3 = row.insertCell(2);
+            cell_1.innerText = inputName.value;
+            cell_2.innerText = inputNumber.value;
+            cell_3.innerText = inputCountry.value;
+            inputName.value = '';
+            inputNumber.value = '';
+            inputCountry.value = '';
+        })
+    </script>
+</body>
+
+</html>
